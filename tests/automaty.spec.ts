@@ -1,9 +1,10 @@
-import {test, expect} from '@playwright/test';
+import {expect, test} from '@playwright/test';
+import 'dotenv/config';
 
 test.describe('Automaty', () => {
   test.describe('Login', () => {
     test.beforeEach(async ({page}) => {
-      await page.goto('https://automaty-gd3cb.ondigitalocean.app/');
+      await page.goto(process.env.BASE_URL!);
     });
 
     test('should login with valid credentials', async ({page}) => {
