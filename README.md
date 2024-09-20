@@ -1,6 +1,6 @@
 # End-To-End Playwright
 
-Demostration project to show how to use Playwright for End-To-End testing.
+Demostration project to show how to use Playwright for End-To-End testing against [Automaty](https://automaty-gd3cb.ondigitalocean.app/).
 
 ## Getting started
 
