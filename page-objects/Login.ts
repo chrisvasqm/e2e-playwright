@@ -1,21 +1,11 @@
-import {Page, Locator} from '@playwright/test';
+import {Page} from '@playwright/test';
 import 'dotenv/config';
 
 export class Login {
   private readonly page: Page;
-  private readonly inputUsername: Locator;
-  private readonly inputPassword: Locator;
-  private readonly buttonSignIn: Locator;
-  private readonly headingWelcome: Locator;
-  private readonly invalidLoginAlert: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    this.inputUsername = page.getByLabel('Username', {exact: true});
-    this.inputPassword = page.getByLabel('Password', {exact: true});
-    this.buttonSignIn = page.getByRole('button', {name: 'Sign In'});
-    this.headingWelcome = page.getByRole('heading', {name: 'Welcome back'});
-    this.invalidLoginAlert = page.getByText(/Invalid/i);
   }
 
   async goto() {
@@ -23,16 +13,16 @@ export class Login {
   }
 
   async signIn(username: string, password: string) {
-    await this.inputUsername.fill(username);
-    await this.inputPassword.fill(password);
-    await this.buttonSignIn.click();
+    await this.page.getByLabel('Username', {exact: true}).fill(username);
+    await this.page.getByLabel('Password', {exact: true}).fill(password);
+    await this.page.getByRole('button', {name: 'Sign In'}).click();
   }
 
   get welcomeHeading() {
-    return this.headingWelcome;
+    return this.page.getByRole('heading', {name: 'Welcome back'});
   }
 
   get alert() {
-    return this.invalidLoginAlert;
+    return this.page.getByText(/Invalid/i);
   }
 }
