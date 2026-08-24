@@ -8,7 +8,7 @@ Demostration project to show how to use Playwright for End-To-End testing agains
 2. Install dependencies:
 
 ```bash
-pnpm install
+bun install
 ```
 
 3. Install the official Playwright [extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright).
