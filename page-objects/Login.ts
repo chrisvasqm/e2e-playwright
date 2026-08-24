@@ -2,11 +2,8 @@ import {Page} from '@playwright/test';
 import 'dotenv/config';
 
 export class Login {
-  private readonly page: Page;
 
-  constructor(page: Page) {
-    this.page = page;
-  }
+  constructor(private readonly page: Page) {}
 
   async goto() {
     await this.page.goto(process.env.BASE_URL!);
